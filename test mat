@@ -1,11 +1,10 @@
-let camX = 0;
-let camY = 0;
-let camZ = 300;
-let centerX = 0;
-let centerY = 0;
-let centerZ = 0;
-let cam = 0;
-
+let p1 = -3;
+let p2 = 4;
+let p3 = 5;
+let  x = 2;
+let  y = 4;
+let  z = 5;
+let  t =  0;
 let morten1;
  function preload()
 {
@@ -15,23 +14,26 @@ morten1=loadImage('Morten.jpg');
 
 function setup() 
 {
-  createCanvas(400, 400,WEBGL);
+  createCanvas(600, 600,WEBGL);
   angleMode(DEGREES);
 }
 
 
 function draw() 
 {
-  background(220);
-  camera(0, 0, 40 + sin(frameCount * 0.01) * 10, 0, 0, 0, 0, 1, 0);
-
  
+  
+
+  background(220);
+
+  
+  
   push();
   noStroke();
-  translate(0,100,0);
+  translate(0,200,100);
   rotateX(90);
   texture(morten1);
-  plane(200,200);
+  plane(400,400);
   pop();
  
   push();
@@ -39,41 +41,51 @@ function draw()
   translate(0,0,-100);
   texture(morten1);
   rotateY(180);
-  plane(200,200);
+  plane(400,400);
   pop();
   
   push();
   noStroke();
-  translate(100,0,0);
+  translate(200,0,0);
   texture(morten1);
   rotateY(-90);
-  plane(200,200);
+  plane(400,400);
   pop();
 
   push();
   noStroke();
-  translate(-100,0,0);
+  translate(-200,0,0);
   texture(morten1);
   rotateY(90);
-  plane(200,200);
+  plane(400,400);
   pop();
   
 
   push();
   noStroke();
-  translate(0,-100,0);
+  translate(0,-200,0);
   texture(morten1);
   rotateX(90);
-  plane(200,200);
+  plane(400,400);
   pop();
- 
-  box(20,20,20);
 
- 
-  
-   
+  for(t=-100;t<100;t++)
 
+  {
+    x=p1*t;
+    y=p2*t;
+    z=p3*t;
+    minsquare(x,y,z);
+  }
 
 }
+function minsquare(x,y,z)
 
-  
+{
+push();
+translate(x,y,z);
+box(20,20,30);
+pop();
+}
+
+
