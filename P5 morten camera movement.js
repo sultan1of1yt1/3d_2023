@@ -1,12 +1,17 @@
 let camX = 0;
 let camY = 0;
-let camZ = 300;
+let camZ = 150;
 let centerX = 0;
 let centerY = 0;
 let centerZ = 0;
 let cam = 0;
-
+movmentspeed=15;
 let morten1;
+x=0;
+y=0;
+z=0;
+speedZ=5;
+
  function preload()
 {
 
@@ -23,7 +28,10 @@ function setup()
 function draw() 
 {
   background(220);
-  camera(0, 0, 40 + sin(frameCount * 0.01) * 10, 0, 0, 0, 0, 1, 0);
+  camera(camX, camY, camZ + sin(frameCount * 0.01) * 10, camX, camY, camZ, 0, 1, 0);
+  mybox(30,20,40,x,y,z);
+ 
+  z=speedZ+z;
 
  
   push();
@@ -67,13 +75,56 @@ function draw()
   plane(200,200);
   pop();
  
-  box(20,20,20);
+  
+
+ if(keyIsDown(68))
+  {
+    camX= camX+movmentspeed;
+  }
+ 
+  if(keyIsDown(65))
+  {
+    camX = camX-movmentspeed;
+  }
+ 
+  if(keyIsDown(87))
+  {
+    camY = camY-movmentspeed;
+  }
+  
+  if(keyIsDown(83))
+  {
+    camY = camY+movmentspeed;
+  }
+  
+   
+ 
+  /*
+  if(keyIsDown(38))
+  {
+    camZ = camZ-movmentspeed;
+  }
+  
+  if(keyIsDown(40))
+  {
+    camZ = camZ+movmentspeed;
+  }
+  */
+  if(z>100)
+  {
+      z = 0;
+      x = random(-100,100);
+      y = random(-100,100);
+  } 
+}
+function mybox(d,w,h,x,y,z)
+{
+
+ push();
+ translate(x,y,z);
+ box(d,w,h);
+ pop();
 
  
   
-   
-
-
 }
-
-  
