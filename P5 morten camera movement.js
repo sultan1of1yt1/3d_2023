@@ -75,26 +75,49 @@ function draw()
   plane(200,200);
   pop();
  
-  
+if(camX<-40)
+{
+  camX=-40;
+}
+
+if(camX>40)
+{
+  camX=40;
+}
+
+if(camY<-40)
+{
+  camY=-40;
+}
+
+if(camY>40)
+{
+  camY=40;
+}
+
+
+
+
+
 
  if(keyIsDown(68))
   {
-    camX= camX+movmentspeed;
+    camX = camX + movmentspeed;
   }
  
   if(keyIsDown(65))
   {
-    camX = camX-movmentspeed;
+    camX = camX - movmentspeed;
   }
  
   if(keyIsDown(87))
   {
-    camY = camY-movmentspeed;
+    camY = camY - movmentspeed;
   }
   
   if(keyIsDown(83))
   {
-    camY = camY+movmentspeed;
+    camY = camY + movmentspeed;
   }
   
    
